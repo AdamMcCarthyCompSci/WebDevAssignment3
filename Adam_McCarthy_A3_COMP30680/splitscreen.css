@@ -1,0 +1,24 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+  }
+  
+  .split {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: scroll;
+
+  }
+  
+  .left {
+    left: 0;
+    background-color: #41B3A3;
+  }
+  
+  .right {
+    right: 0;
+    background-color: #45A29E;
+  }

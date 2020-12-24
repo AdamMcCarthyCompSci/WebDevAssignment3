@@ -1,0 +1,61 @@
+<html>
+<head>
+    <link rel="stylesheet" href="buttons.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="footer.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="navbar.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="scrollbar.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="splitscreen.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="tables.css?v=<?php echo time(); ?>">
+</head>
+<script>
+function showOffice(str) {
+  if (str == "") {
+    document.getElementById("officesContainer").innerHTML = "";
+    return;
+  } else {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("officesContainer").innerHTML = this.responseText;
+      }
+    };
+    xmlhttp.open("GET","offices.php");
+    xmlhttp.send();
+  }
+}
+function showEmployee(str) {
+  if (str == "") {
+    document.getElementById("employeesContainer").innerHTML = "";
+    return;
+  } else {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("employeesContainer").innerHTML = this.responseText;
+      }
+    };
+    xmlhttp.open("GET","employees.php?q="+str,true);
+    xmlhttp.send();
+  }
+}
+</script>
+</head>
+<body>
+<script>showOffice()</script>
+<div class="split left">
+    <ul>
+        <li><a href="index.html">Products</a></li>
+        <li><a class="active" href="offices.html">Offices</a></li>
+        <li><a href="payments.html">Payments</a></li>
+        </ul>
+    </br>
+<div id="officesContainer"></div>
+<div class="footer">
+    <h5>Classic Models Company</h5>
+  </div>
+</div>
+<div class="split right">
+<div id="employeesContainer"></div>
+</div>
+</body>
+</html>
